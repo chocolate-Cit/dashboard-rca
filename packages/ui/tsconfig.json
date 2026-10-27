@@ -1,0 +1,5 @@
+{
+  "extends": "@gip/config/tsconfig.base.json",
+  "compilerOptions": { "types": ["vitest/globals", "@testing-library/jest-dom"] },
+  "include": ["src", "vitest.setup.ts"]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@gip/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./hooks": "./src/hooks/index.ts",
+    "./calc": "./src/calc/index.ts",
+    "./mocks/handlers": "./src/mocks/handlers.ts",
+    "./mocks/db": "./src/mocks/db.ts",
+    "./server": "./src/server.ts"
+  },
+  "scripts": {
+    "dev": "tsx src/mocks/server.ts",
+    "mock-server": "tsx src/mocks/server.ts",
+    "start": "tsx src/mocks/server.ts",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.62.11",
+    "zod": "3.24.1"
+  },
+  "devDependencies": {
+    "@gip/config": "workspace:*",
+    "@mswjs/http-middleware": "0.10.3",
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.2",
+    "eslint": "9.17.0",
+    "msw": "2.7.0",
+    "react": "19.0.0",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2",
+    "vitest": "2.1.8"
+  },
+  "peerDependencies": {
+    "react": "^19"
+  }
+}

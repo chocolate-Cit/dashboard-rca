@@ -1,0 +1,8 @@
+import type { NextConfig } from 'next';
+
+const config: NextConfig = {
+  transpilePackages: ['@gip/api', '@gip/ui'],
+  poweredByHeader: false,
+};
+
+export default config;

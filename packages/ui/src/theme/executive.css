@@ -1,0 +1,47 @@
+/* Executive — โทนเข้ม (ค่าหลักจาก DESIGN.md §5.2) */
+:root {
+  --scheme: dark;
+  --bg: #0b1220;
+  --surface: #121a2b;
+  --surface-2: #0f1626;
+  --surface-hover: #182238;
+  --border: #1f2a40;
+  --border-strong: #2c3a56;
+  --text: #e6eaf2;
+  --text-muted: #8a94a8;
+
+  --primary: #4f8cff;
+  --primary-hover: #6b9fff;
+  --primary-soft: rgb(79 140 255 / 0.14);
+  --primary-fg: #8db4ff;
+  --on-primary: #06101f;
+
+  --success: #22c55e;
+  --success-soft: rgb(34 197 94 / 0.14);
+  --success-fg: #4ade80;
+  --warning: #f59e0b;
+  --warning-soft: rgb(245 158 11 / 0.14);
+  --warning-fg: #fbbf24;
+  --danger: #ef4444;
+  --danger-soft: rgb(239 68 68 / 0.16);
+  --danger-fg: #f87171;
+  /* ความเร่งด่วน: เขียว → เหลือง → ส้ม → แดง */
+  --prio-low-bg: rgb(34 197 94 / 0.16);
+  --prio-low-fg: #4ade80;
+  --prio-medium-bg: rgb(234 179 8 / 0.18);
+  --prio-medium-fg: #facc15;
+  --prio-high: #c2410c;
+  --prio-critical: #dc2626;
+  --neutral-soft: rgb(138 148 168 / 0.14);
+
+  /* Heatmap: สเกลสีเดียว (primary) 5 ระดับ ไล่จากพื้นผิวไปสว่าง */
+  --heat-0: #16213a;
+  --heat-1: #1d3566;
+  --heat-2: #2a4f97;
+  --heat-3: #3d73d6;
+  --heat-4: #8db4ff;
+
+  --focus: #8db4ff;
+  --selection: rgb(79 140 255 / 0.35);
+  --shadow-color: rgb(0 0 0 / 0.45);
+}

@@ -1,0 +1,252 @@
+/*
+ * Tailwind preset ร่วมของทั้งสองเว็บ
+ * แต่ละเว็บ import ไฟล์ธีมของตัวเอง (executive.css) ซึ่งกำหนดค่าตัวแปร
+ * แล้วไฟล์นี้ map ตัวแปรเหล่านั้นเป็น utility ของ Tailwind (bg-surface, text-muted, …)
+ */
+
+
+@theme inline {
+  --color-prio-low-bg: var(--prio-low-bg);
+  --color-prio-low-fg: var(--prio-low-fg);
+  --color-prio-medium-bg: var(--prio-medium-bg);
+  --color-prio-medium-fg: var(--prio-medium-fg);
+  --color-prio-high: var(--prio-high);
+  --color-prio-critical: var(--prio-critical);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-fg: var(--primary-fg);
+  --color-on-primary: var(--on-primary);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-success-fg: var(--success-fg);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-fg: var(--warning-fg);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-danger-fg: var(--danger-fg);
+  --color-neutral-soft: var(--neutral-soft);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-hover: var(--sidebar-hover);
+  --color-sidebar-text: var(--sidebar-text);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-heat-0: var(--heat-0);
+  --color-heat-1: var(--heat-1);
+  --color-heat-2: var(--heat-2);
+  --color-heat-3: var(--heat-3);
+  --color-heat-4: var(--heat-4);
+
+  --font-sans: var(--font-plex-thai), 'IBM Plex Sans Thai', 'Noto Sans Thai', system-ui, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --shadow-pop: 0 12px 32px -8px var(--shadow-color), 0 2px 6px -2px var(--shadow-color);
+  --shadow-card: 0 1px 2px 0 var(--shadow-color);
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  --animate-fade-in: fade-in 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-pop-in: pop-in 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-in: slide-in 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-page-in: page-in 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(4px) scale(0.98); }
+}
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(6px); }
+}
+@keyframes slide-in {
+  from { transform: translateX(-100%); }
+}
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    color-scheme: var(--scheme);
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* ตัวเลขในตาราง/การ์ด ต้องเรียงตรงกันทุกหลัก */
+  .num,
+  table,
+  time {
+    font-variant-numeric: tabular-nums;
+  }
+  ::selection {
+    background: var(--selection);
+    color: var(--text);
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  input,
+  textarea,
+  select {
+    caret-color: var(--primary);
+  }
+  a {
+    text-underline-offset: 3px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility skeleton {
+  background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-hover) 50%, var(--surface-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- หน้า Login: แผงแบรนด์ที่เคลื่อนไหว ---------- */
+.login-panel {
+  background: linear-gradient(160deg, #0f1d3a 0%, #0b1530 55%, #08101f 100%);
+}
+.login-grid {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at 30% 40%, #000 20%, transparent 75%);
+}
+.login-glow {
+  position: absolute;
+  z-index: -1;
+  border-radius: 9999px;
+  filter: blur(70px);
+  pointer-events: none;
+}
+.login-glow-a {
+  width: 26rem;
+  height: 26rem;
+  left: -6rem;
+  top: 18%;
+  background: rgb(37 99 235 / 0.35);
+  animation: login-drift 18s ease-in-out infinite alternate;
+}
+.login-glow-b {
+  width: 20rem;
+  height: 20rem;
+  right: -5rem;
+  bottom: 6%;
+  background: rgb(14 165 233 / 0.22);
+  animation: login-drift 22s ease-in-out infinite alternate-reverse;
+}
+@keyframes login-drift {
+  to { transform: translate(5rem, -3rem) scale(1.15); }
+}
+.login-rise {
+  animation: login-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+/* ทั้งหน้า Login ค่อย ๆ ขึ้นมา: แผงซ้ายเฟดเข้า ช่องในฟอร์มลอยขึ้นทีละช่อง */
+.login-fade {
+  animation: login-fade 900ms ease-out both;
+}
+@keyframes login-fade {
+  from { opacity: 0; }
+}
+.login-stagger > * {
+  animation: login-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(320ms + var(--i, 0) * 80ms);
+}
+.login-stagger > :nth-child(2) { --i: 1; }
+.login-stagger > :nth-child(3) { --i: 2; }
+.login-stagger > :nth-child(4) { --i: 3; }
+.login-stagger > :nth-child(5) { --i: 4; }
+@keyframes login-rise {
+  from { opacity: 0; transform: translateY(14px); filter: blur(4px); }
+}
+.login-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: login-pulse 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+@keyframes login-pulse {
+  from { opacity: 0.9; transform: scale(0.9); }
+  to { opacity: 0; transform: scale(2.4); }
+}
+
+/* ---------- เปิดหน้าแล้วทุกส่วนค่อย ๆ ขึ้นมาตามลำดับ ---------- */
+.reveal {
+  animation: reveal 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+}
+/* ลูกแต่ละตัวขึ้นทีละใบ (การ์ดตัวเลข) */
+.reveal-stagger > * {
+  animation: reveal 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--d, 0ms) + var(--i, 0) * 90ms);
+}
+.reveal-stagger > :nth-child(2) { --i: 1; }
+.reveal-stagger > :nth-child(3) { --i: 2; }
+.reveal-stagger > :nth-child(4) { --i: 3; }
+/* ช่อง heatmap สว่างขึ้นไล่ตามชั่วโมง */
+.heat-in {
+  animation: heat-in 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes heat-in {
+  from { opacity: 0; transform: scale(0.6); }
+}
+
+
+/* แถบโหลดตอนเปลี่ยนหน้า: วิ่งเร็วช่วงแรกแล้วค่อย ๆ ช้าลง ระหว่างรอหน้าใหม่ */
+.nav-progress {
+  transform-origin: left;
+  animation: nav-progress 8s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+}
+@keyframes nav-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(0.92); }
+}

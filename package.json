@@ -1,0 +1,22 @@
+{
+  "name": "go-inno-parking-dashboard",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "mock": "pnpm --filter @gip/api mock-server",
+    "build": "turbo run build",
+    "preview": "turbo run build && turbo run start",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "e2e": "playwright test",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@playwright/test": "1.49.1",
+    "prettier": "3.4.2",
+    "turbo": "2.3.3",
+    "typescript": "5.7.2"
+  }
+}

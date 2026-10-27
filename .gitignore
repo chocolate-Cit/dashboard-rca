@@ -1,0 +1,10 @@
+node_modules
+.next
+.turbo
+.env.local
+test-results
+playwright-report
+coverage
+*.tsbuildinfo
+next-env.d.ts
+.impeccable/review/

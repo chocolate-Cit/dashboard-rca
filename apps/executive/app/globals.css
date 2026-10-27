@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+@import '@gip/ui/theme/base.css';
+@import '@gip/ui/theme/executive.css';
+
+@source '../';
+@source '../../../packages/ui/src';
